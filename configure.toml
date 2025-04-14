@@ -1,0 +1,75 @@
+[TF-GridNet]
+num_TF-Grid_blocks = 5
+
+[TF-Grid_Block]
+embedding = 32
+kernel_size = 4
+stride = 1
+hidden_size = 100
+width = 255
+
+[FSM]
+channels = 4
+num_heads = 4
+
+[Phase_Encoder]
+channels = 4
+kernel_size = [3, 1]
+stride = [1, 1]
+padding = [1, 0]
+
+[DL_TF-Grid]
+num_blocks = 5
+kernel_size = [3, 3]
+stride = [1, 1]
+padding = [1, 0]
+
+[PL_TF-Grid]
+num_blocks = 5
+num_middles = 4
+
+[FFT]
+win_length = 512
+hop_length = 256
+n_fft = 512
+
+[Loss]
+loss_lambda = 0.01
+rou = 0.7
+gamma = 0.3333
+
+[train_dataset]
+noisy_dir = "/data/ssd0/leyan.yang/DNS5/train_noisy"
+clean_dir = "/data/ssd0/leyan.yang/DNS5/train_clean"
+
+[train_dataloader]
+batch_size = 2
+num_workers = 4
+drop_last = true
+pin_memory = true
+
+[validation_dataset]
+noisy_dir = "/data/ssd0/leyan.yang/DNS5/dev_noisy"
+clean_dir = "/data/ssd0/leyan.yang/DNS5/dev_clean"
+
+[validation_dataloader]
+batch_size = 1
+num_workers = 4
+pin_memory = true
+
+[test_dataset]
+noisy_dir = "D:\\Users\\14979\\Desktop\\DNS5_16k\\test_noisy"
+clean_dir = "D:\\Users\\14979\\Desktop\\DNS5_16k\\test_clean"
+pred_dir = "D:\\Users\\14979\\Desktop\\DNS5_16k\\DL_pred"
+
+[test_dataloader]
+batch_size = 1
+num_workers = 4
+pin_memory = true
+
+[optimizer]
+betas = [0.9, 0.98]
+eps = 1e-9
+lr = 1e-3
+
+
