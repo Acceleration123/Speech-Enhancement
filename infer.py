@@ -45,7 +45,7 @@ class infer:
         e_tar = a * ref
         e_res = inf - e_tar
 
-        sisnr =10 * np.log10((np.sum(e_tar ** 2) + 1e-8) / (np.sum(e_res ** 2) + 1e-8))
+        sisnr = 10 * np.log10((np.sum(e_tar ** 2) + 1e-8) / (np.sum(e_res ** 2) + 1e-8))
 
         return sisnr
 
