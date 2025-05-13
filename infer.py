@@ -4,7 +4,6 @@ import soundfile as sf
 import os
 import pandas as pd
 import concurrent.futures
-import toml
 import argparse
 import glob
 from pystoi import stoi
@@ -13,8 +12,6 @@ from tqdm import tqdm
 
 from Model_DL import DL_TF_Grid as Model
 from DNSMOS.dnsmos_local import ComputeScore
-
-configure = toml.load("configure.toml")
 
 
 class infer:
