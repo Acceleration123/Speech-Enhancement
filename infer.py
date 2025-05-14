@@ -113,10 +113,12 @@ class infer:
         clips = glob.glob(os.path.join(args.testset_dir, "*.wav"))
         is_personalized_eval = args.personalized_MOS
         desired_fs = fs
+        
         for m in tqdm(models):
             max_recursion_depth = 10
             audio_path = os.path.join(args.testset_dir, m)
             audio_clips_list = glob.glob(os.path.join(audio_path, "*.wav"))
+        
             while len(audio_clips_list) == 0 and max_recursion_depth > 0:
                 audio_path = os.path.join(audio_path, "**")
                 audio_clips_list = glob.glob(os.path.join(audio_path, "*.wav"))
