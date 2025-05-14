@@ -10,7 +10,7 @@ from pystoi import stoi
 from pesq import pesq
 from tqdm import tqdm
 
-from Model_DL import DL_TF_Grid as Model
+from model.Model_DL import DL_TF_Grid as Model
 from DNSMOS.dnsmos_local import ComputeScore
 
 
