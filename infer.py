@@ -188,7 +188,7 @@ if __name__ == '__main__':
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model = Model().to(device)
-    state_dict = torch.load("best_model_195.tar", map_location=device)
+    state_dict = torch.load("best_model.tar", map_location=device)
     model.load_state_dict(state_dict['model'])
 
     infer = infer(model, device)
