@@ -190,6 +190,7 @@ if __name__ == '__main__':
     model = Model().to(device)
     state_dict = torch.load("best_model.tar", map_location=device)
     model.load_state_dict(state_dict['model'])
+    model.eval()
 
     infer = infer(model, device)
     infer.test_dataset_infer(args)
