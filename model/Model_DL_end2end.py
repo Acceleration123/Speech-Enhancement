@@ -103,6 +103,8 @@ class DL_TF_Grid(nn.Module):
         """
         x: (B, T)  time domain
         """
+        n_samples = x.shape[-1]
+
         x = self.stft_encoder(x)  # (B, F, T, 2) / (B, 257, T, 2)
         x = x.permute(0, 3, 2, 1)  # (B, 2, T, F) / (B, 2, T, 257)
         x = self.phase_encoder(x)  # (B, 4, T, F) / (B, 4, T, 257)
@@ -115,10 +117,17 @@ class DL_TF_Grid(nn.Module):
 
         x = self.de_conv(x).permute(0, 3, 2, 1)  # (B, F, T, 2) / (B, 257, T, 2)
         x = self.stft_decoder(x)  # (B, T)
+        x = nn.functional.pad(x, (0, n_samples - x.shape[-1]))  # (B, T)
         return x
 
 
 if __name__ == '__main__':
-    flops, params = get_model_complexity_info(DL_TF_Grid().eval(), (16000,), as_strings=True,
+    model = DL_TF_Grid().eval()
+
+    y_in = torch.randn(1, 16000)
+    y_out = model(y_in)
+    print(y_out.shape)
+
+    flops, params = get_model_complexity_info(model, (16000,), as_strings=True,
                                               print_per_layer_stat=True, verbose=True)
     print(flops, params)
