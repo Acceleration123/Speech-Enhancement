@@ -94,13 +94,42 @@ class Train_Dataset(data.Dataset):
         return noisy, label_final  # (T,) & (T,) in direct learning mode, (T, 5) in progressive learning mode
 
 
+class Valid_Dataset(data.Dataset):
+    def __init__(self):
+        self.valid_clean_database = sorted(librosa.util.find_files(VALID_CLEAN_PATH, ext='wav'))
+        self.valid_noisy_database = sorted(librosa.util.find_files(VALID_NOISY_PATH, ext='wav'))
+
+    def __len__(self):
+        return len(self.valid_clean_database)
+
+    def __getitem__(self, idx):
+        label, _ = sf.read(self.valid_clean_database[idx], dtype='float32')
+        noisy, _ = sf.read(self.valid_noisy_database[idx], dtype='float32')
+
+        return noisy, label  # (T,) & (T,)
+
+
 if __name__ == '__main__':
-    train_dataset = Train_Dataset(num_per_epoch=10, pl=True)
-    train_loader = data.DataLoader(train_dataset, batch_size=1, shuffle=True, num_workers=0)
-    for i, (noisy, label) in enumerate(train_loader):
+    # test train_dataset in direct learning mode
+    train_dataset_dl = Train_Dataset(num_per_epoch=10, pl=False)
+    train_loader_dl = data.DataLoader(train_dataset_dl, batch_size=1, shuffle=True, num_workers=0)
+    for i, (noisy, label) in enumerate(train_loader_dl):
+        print(i, noisy.shape, label.shape)
+
+    # test train_dataset in progressive learning mode
+    train_dataset_pl = Train_Dataset(num_per_epoch=10, pl=True)
+    train_loader_pl = data.DataLoader(train_dataset_pl, batch_size=1, shuffle=True, num_workers=0)
+    for i, (noisy, label) in enumerate(train_loader_pl):
         print(i, noisy.shape, label.shape)
         num = label.shape[-1]
         if i == 0:
             label = label.squeeze(0)
             for j in range(num):
                 sf.write(f"label_{j}.wav", label[:, j].cpu().detach().numpy(), 16000)
+
+    # test valid_dataset
+    valid_dataset = Valid_Dataset()
+    valid_loader = data.DataLoader(valid_dataset, batch_size=1, shuffle=False, num_workers=0)
+    for i, (noisy, label) in enumerate(valid_loader):
+        print(i, noisy.shape, label.shape)
+
