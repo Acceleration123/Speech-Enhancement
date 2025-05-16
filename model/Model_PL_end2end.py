@@ -133,7 +133,7 @@ class PL_TF_Grid(nn.Module):
                 middle = middle.unsqueeze(-1)  # (B, T, 1)
                 y = torch.cat([y, middle], dim=-1)  # (B, T, num_results)
 
-        return y  # (B, T, num_tf_blks) /   (B, T, 5)
+        return y  # (B, T, num_tf_blks) / (B, T, 5)
 
 
 if __name__ == '__main__':
