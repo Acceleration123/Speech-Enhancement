@@ -98,10 +98,9 @@ if __name__ == '__main__':
     train_dataset = Train_Dataset(num_per_epoch=10, pl=True)
     train_loader = data.DataLoader(train_dataset, batch_size=1, shuffle=True, num_workers=0)
     for i, (noisy, label) in enumerate(train_loader):
+        print(i, noisy.shape, label.shape)
         num = label.shape[-1]
         if i == 0:
             label = label.squeeze(0)
             for j in range(num):
                 sf.write(f"label_{j}.wav", label[:, j].cpu().detach().numpy(), 16000)
-
-        print(i, noisy.shape, label.shape)
