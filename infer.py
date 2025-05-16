@@ -172,7 +172,8 @@ if __name__ == '__main__':
 
     parser.add_argument('-t', "--testset_dir",
                         help='Path to the dir containing audio clips in .wav to be evaluated',
-                        default="C:\\Users\\86151\\Desktop\\NN-Zoo\\dual_unet\\test_pred")
+                        default="C:\\Users\\86151\\Desktop\\NN-Zoo\\dual_unet\\test_pred"
+                        )
 
     parser.add_argument('-o', "--csv_path",
                         help='Dir to the csv that saves the results',
@@ -196,4 +197,3 @@ if __name__ == '__main__':
     infer.test_dataset_infer(args)
     infer.dnsmos_metrics(args)
     infer.intrusive_metrics(args)
-
