@@ -30,8 +30,7 @@ class Train_Dataset(data.Dataset):
             random_start=True,
             middle_blks=4,
             snr_delta=5,
-            pl=False,
-            eps=1e-8
+            pl=False
     ):
         super(Train_Dataset, self).__init__()
         self.train_clean_database = sorted(librosa.util.find_files(TRAIN_CLEAN_PATH, ext='wav'))[:num_tot]
@@ -48,7 +47,6 @@ class Train_Dataset(data.Dataset):
         self.middle_blks = middle_blks
         self.snr_delta = snr_delta
         self.pl = pl
-        self.eps = eps
 
     def __len__(self):
         return self.num_per_epoch
