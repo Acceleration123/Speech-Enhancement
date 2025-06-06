@@ -25,9 +25,11 @@ But it's interesting to find that under PESQ, performance of TF-GridNet-PL is wo
 
 ## Audio Examples
 Clean speech&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Noisy speech:
+
 <img width="20%" height="20%" src="spectrogram/clean.png"/> <img width="20%" height="20%" src="spectrogram/Noisy.png"/>
 
-TF-GridNet-DL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TF-GridNet-PL:                      
+TF-GridNet-DL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TF-GridNet-PL:  
+
 <img width="20%" height="20%" src="spectrogram/enhanced by DL.png"/> <img width="20%" height="20%" src="spectrogram/enhanced by PL.png"/>
 
 ## Acknowledgement
