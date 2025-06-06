@@ -1,10 +1,10 @@
 # Speech-Enhancement
-Practice on speech enhancement exploiting deep learning method. The neural network we choose is TF-GridNet, an excellent architecture in the field of speech separation, more details can be found here: https://arxiv.org/abs/2209.03952.
+Practice on speech enhancement exploiting deep learning method. The neural network we choose is TF-GridNet, an excellent architecture in the field of speech separation, more details can be found here: [TF-GridNet](https://arxiv.org/abs/2209.03952).
 
 ## Progressive Learning Strategy
-However, in this repository, we also combine progressive learning strategy with original TF-GridNet to achieve better enhancement performance. Pre-trained models under two different strategies are available here: https://drive.google.com/file/d/1krMSO78aNgLXAPRHsqjZVi07k4AkLoj_/view?usp=sharing & https://drive.google.com/file/d/1NbIED2f79Uw9P5H5zRWcSanl4mWuQJiJ/view?usp=sharing
+However, in this repository, we also combine progressive learning strategy with original TF-GridNet to achieve better enhancement performance. Pre-trained models under two different strategies are available here: [Direct Learning](https://drive.google.com/file/d/1krMSO78aNgLXAPRHsqjZVi07k4AkLoj_/view?usp=sharing) & [Progressive Learning](https://drive.google.com/file/d/1NbIED2f79Uw9P5H5zRWcSanl4mWuQJiJ/view?usp=sharing)
 
-## Performance Based On DNS5 Test Dataset
+## Performance Evaluation Based On DNS5 Test Dataset
 Experiment results show that TF-GridNet-PL(progressive learning) outperforms TF-GridNet-DL(direct learning) under DNSMOS metrics(table 1). 
 
 But it's interesting to find that under PESQ, performance of TF-GridNet-PL is worse than its DL version(table 2).    
@@ -22,6 +22,9 @@ But it's interesting to find that under PESQ, performance of TF-GridNet-PL is wo
 |Noisy|-|-|1.391|0.784|2.918|2.147|
 |TF-GridNet-DL|2.36|33.65|**2.763**|**0.882**|16.827|
 |TF-GridNet-PL|2.36|33.69|2.519|0.880|**17.571**|
+
+## Acknowledgement
+This code extensively references the excellent [SEtrain](https://github.com/Xiaobin-Rong/SEtrain) codebase and open source of [TF-GridBlock](https://github.com/espnet/espnet/blob/master/espnet2/enh/separator/tfgridnet_separator.py).
 
 
 
