@@ -24,25 +24,14 @@ But it's interesting to find that under PESQ, performance of TF-GridNet-PL is wo
 |TF-GridNet-PL|2.36|33.69|2.519|0.880|**17.571**|
 
 ## Audio Examples
-<figure>                                                     
-  <figcaption>Clean Speech:</figcaption>
-  <img width="45%" height="45%" src="spectrogram/clean.png">  
-</figure>
+| Clean | Noisy |
+|:---: | :---: |
+|<img src = "spectrogram/clean.png"> | <img src = "spectrogram/Noisy.png"> |
 
-<figure>
-  <figcaption>Noisy Speech:</figcaption>
-  <img width="45%" height="45%" src="spectrogram/Noisy.png">
-</figure>
+| Enhanced by TF-GridNet-DL | Enhanced by TF-GridNet-PL |
+|:---: | :---: |
+|<img src = "spectrogram/enhanced by DL.png"> | <img src = "spectrogram/enhanced by PL.png"> |
 
-<figure>
-  <figcaption>Enhanced by TF-GridNet-DL:</figcaption>
-  <img width="45%" height="45%" src="spectrogram/enhanced by DL.png">
-</figure>
-
-<figure>
-  <figcaption>Enhanced by TF-GridNet-PL:</figcaption>
-  <img width="45%" height="45%" src="spectrogram/enhanced by PL.png">
-</figure>
 
 ## Acknowledgement
 This code extensively references the excellent [SEtrain](https://github.com/Xiaobin-Rong/SEtrain) codebase and open source of [TF-GridBlock](https://github.com/espnet/espnet/blob/master/espnet2/enh/separator/tfgridnet_separator.py).
