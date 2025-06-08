@@ -24,13 +24,15 @@ But it's interesting to find that under PESQ, performance of TF-GridNet-PL is wo
 |TF-GridNet-PL|2.36|33.69|2.519|0.880|**17.571**|
 
 ## Audio Examples
+The following test examples can be found in the folder named speech. You can use Audition to load and play them.
+
 | Clean | Noisy |
 |:---: | :---: |
-|<img src = "spectrogram/clean.png"> | <img src = "spectrogram/Noisy.png"> |
+| <img src = "spectrogram/clean.png"> | <img src = "spectrogram/Noisy.png"> |
 
 | Enhanced by TF-GridNet-DL | Enhanced by TF-GridNet-PL |
 |:---: | :---: |
-|<img src = "spectrogram/enhanced by DL.png"> | <img src = "spectrogram/enhanced by PL.png"> |
+| <img src = "spectrogram/enhanced by DL.png"> | <img src = "spectrogram/enhanced by PL.png"> |
 
 
 ## Acknowledgement
